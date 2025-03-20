@@ -13,7 +13,7 @@ This repository contains R scripts that analyze trends in baby names from Americ
 ## Sources:
 - [SSA Baby Names](https://www.ssa.gov/oact/babynames) (US data)
 - [ONS Data](https://www.ons.gov.uk) (UK data)
-- ChatGPT4o (for connotation analysis)
+- ChatGPT4 (for connotation analysis)
 - Word2Vec (for dimensional mapping of connotations)
 
 ## Data Description
@@ -43,6 +43,14 @@ The dataset for UK names is stored in the file [`output-data/uk_names_with_popul
 |------|-----|----|------|----------|------------------|-------|---------------|---------------|---------------|---------------|---------------|------|-----------------|--------------|--------|----------|--------|------|-----|-----------|-----------|
 | Aaban | M  | 14 | 2013 | 1890819  | 0.0007404199      | 5     | dignity       | nobility      | prosperity    | leadership    | strength      | FALSE| 1. Dignity\n2. Nobility\n3. Prosperity\n4. Leadership\n5. Strength | FALSE        | FALSE  | FALSE    | FALSE  | FALSE| FALSE| FALSE     | FALSE     |
 | Emma  | F  | 350| 2020 | 1720000  | 0.0203488372      | 4     | beauty        | love          | joy           | kindness      | strength      | FALSE| 1. Beauty\n2. Love\n3. Joy\n4. Kindness\n5. Strength  | FALSE        | TRUE   | FALSE    | FALSE  | TRUE | TRUE | FALSE     | FALSE     |
+
+## Connotations
+Connotations were obtained through OpenAI's API using separate calls to ChatGPT4 with the query "What are the top five connotations of the name {name}. Give your answer as a list separated by commas." 
+Connotations groups were obtained through a combination of manual and LLM identification of synonyms. Groups were defined manually.  
+
+## Caveats
+- Not all baby names enter our dataset. In America, we only have data on names given to five or more in a given year. In England and Wales, only names given to at least three in a given year enter the data.
+- Our study tracks the popularity of connotations through the names. However, we only know the current connotations of names. Connotations may have changed over time. For some connotations this is especially important (e.g. "traditional"). Please consider this if using this data to look at such questions, and be careful about going far back in time. We have no reason to believe this affects broad trends in the data for the cannotation groups we identify in our analysis. 
 
 ## Contact
 
