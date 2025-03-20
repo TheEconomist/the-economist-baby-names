@@ -44,10 +44,9 @@ The dataset for UK names is stored in the file [`output-data/uk_names_with_popul
 | Aaban | M  | 14 | 2013 | 1890819  | 0.0007404199      | 5     | dignity       | nobility      | prosperity    | leadership    | strength      | FALSE| 1. Dignity\n2. Nobility\n3. Prosperity\n4. Leadership\n5. Strength | FALSE        | FALSE  | FALSE    | FALSE  | FALSE| FALSE| FALSE     | FALSE     |
 | Emma  | F  | 350| 2020 | 1720000  | 0.0203488372      | 4     | beauty        | love          | joy           | kindness      | strength      | FALSE| 1. Beauty\n2. Love\n3. Joy\n4. Kindness\n5. Strength  | FALSE        | TRUE   | FALSE    | FALSE  | TRUE | TRUE | FALSE     | FALSE     |
 
-## Summary
-
-The datasets provide a detailed view of the popularity and connotations of names in the US and UK over time. The connotations offer insights into cultural and societal perceptions of names, while the historical data allows for analysis of naming trends and the evolving emphasis on different qualities associated with names.
-
 ## Contact
 
 For questions or issues, please contact Sondre Solstad at [sondresolstad@economist.com](mailto:sondresolstad@economist.com).
+
+## Suggested citation
+The Economist and Solstad, S. (corresponding author), 2025. What's in a name? [online] The Economist. Available at: www.economist.com/interactive/culture/2025/03/20/what-is-in-a-name. First published in the article "The importance of being Earnest", The Economist, March 20th, 2025.
