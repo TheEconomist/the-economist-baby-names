@@ -8,8 +8,6 @@ This repository contains R scripts that analyze trends in baby names from Americ
 - **Trend Analysis**: Evaluates the diversity and rate of change in naming practices using metrics such as the Jensen–Shannon distance and Herfindahl-Hirschman Index (HHI).
 - **Visualization Scripts**: Generate charts illustrating trends in name popularity, diversity, and associated connotations.
 
-This analysis provides insights into how naming patterns reflect broader social and cultural changes.
-
 # Details:
 
 ## Sources:
