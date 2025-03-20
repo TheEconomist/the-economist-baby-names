@@ -1,34 +1,55 @@
-# Template for data analysis projects
+# What's in a name?
 
-This is a basic repo for structuring a data project for the Economist. It's set up around using [R][Rlang], but is equally useable with [Python][Python] scripts, if you prefer.
+This repository contains R scripts that analyze trends in baby names from America and Britain over the past 143 years. It examines how the popularity, diversity, and meanings (connotations) of names have evolved over time, highlighting cultural shifts through visualizations and statistical metrics.
 
-[Rlang]: https://www.r-project.org/
-[Python]: https://python.org/
+### Contents:
+- **Data Gathering Scripts**: Collect and prepare datasets of baby names from US and UK sources.
+- **Connotation Analysis**: Uses AI-generated descriptors to categorize names into groups (e.g., intelligence, beauty, strength).
+- **Trend Analysis**: Evaluates the diversity and rate of change in naming practices using metrics such as the Jensen–Shannon distance and Herfindahl-Hirschman Index (HHI).
+- **Visualization Scripts**: Generate charts illustrating trends in name popularity, diversity, and associated connotations.
 
+This analysis provides insights into how naming patterns reflect broader social and cultural changes.
 
-## How to use it
+# Details:
 
-The project structure is set up with four (self-explanatory) directories:
+## Sources:
+- [SSA Baby Names](https://www.ssa.gov/oact/babynames) (US data)
+- [ONS Data](https://www.ons.gov.uk) (UK data)
+- ChatGPT4o (for connotation analysis)
+- Word2Vec (for dimensional mapping of connotations)
 
-- `source-data` - The data files your script depends on to run. (This may not be _all_ the data you need--pulling information direct from the internet is also fine!)
-- `scripts` - Your processing scripts (in R or Python)
-- `plots` - Any charts you want to output
-- `output-data` - The data files your script produces
+## Data Description
+### United States
 
-There is also a `run.sh`. This is a [shell script][shell script] in bash. If at all practical, this script should run all of your code (either use `Rscript scripts/MY_SCRIPT.R` or `python3 scripts/MY_SCRIPT.py`). This means anyone coming fresh to your script will know how to run it and generate your output files. A shell script is more or less the same as running commands on the command line, so you can run several scripts in order, or even mix and match R and python scripts if you feel the need. This also means you _don't_ need to use `setwd` in R. (`setwd` makes it more difficult for other people to use your script.)
+The dataset for American names is stored in the file [`output-data/us_names_with_popularity_and_connotations.csv`](output-data/us_names_with_popularity_and_connotations.csv). It contains detailed information on the prevalence and connotations of common names given in America from 1880–2023. The columns include:
 
-[shell script]: https://en.wikipedia.org/wiki/Shell_script
+- **`name`**: The given name under analysis.
+- **`sex`**: The gender associated with the name (M for Male, F for Female).
+- **`n`**: The number of occurrences of the name in a given year.
+- **`year`**: The specific year the data was recorded.
+- **`per_year`**: The total number of births recorded in that year.
+- **`percent_per_year`**: The percentage of occurrences of the name relative to the total births in that year.
+- **`nchar`**: The number of characters in the name.
+- **`connotation_1` to `connotation_5`**: The top five connotations associated with each name, representing different qualities or attributes. These were acquired by asking ChatGPT4o to give the top five connotations of the name, separated by commas.
+- **`flag`**: A boolean flag indicating whether the row is missing data on any of the five connotations listed (FALSE indicates all connotations are present).
+- **`connotation_raw`**: The raw text string of connotations associated with the name, as originally provided.
+- **`intelligence` to `tradition`**: Boolean columns indicating whether the name is associated with specific broad connotation categories such as intelligence, beauty, strength, wealth, love, joy, religious, and tradition. These were acquired by asking ChatGPT4o for all connotations related to these themes.
 
+### United Kingdom
 
-## Best practices
+The dataset for UK names is stored in the file [`output-data/uk_names_with_popularity_and_connotations.csv`](output-data/uk_names_with_popularity_and_connotations.csv). It provides similar information to the US dataset, covering UK names from 1996–2023.
 
-_You should be using dependency management_. If you're using R, use [renv][renv] (this is decidedly better than [pacman][pacman]; please _don't_ use pacman). If you're using Python, use [poetry][poetry] (you could also use [pipenv][pipenv]--both are fine; either is better than just providing `requirements.txt`, though that's better than nothing). This will help make sure other people are able to run your code easily. If you're not sure how to use these tools, [renv][renv how to] and [poetry][poetry how to] both have relatively inscrutable introductions, but they're hopefully helpful.
+### Example Rows (US)
 
-[renv]: https://rstudio.github.io/renv/index.html
-[renv how to]: https://rstudio.github.io/renv/reference/init.html
-[pacman]: https://cran.r-project.org/web/packages/pacman/index.html
-[pipenv]: https://pipenv.pypa.io/en/latest/
-[poetry]: https://python-poetry.org/
-[poetry how to]: https://python-poetry.org/docs/basic-usage/
+| name | sex | n  | year | per_year | percent_per_year | nchar | connotation_1 | connotation_2 | connotation_3 | connotation_4 | connotation_5 | flag | connotation_raw | intelligence | beauty | strength | wealth | love | joy | religious | tradition |
+|------|-----|----|------|----------|------------------|-------|---------------|---------------|---------------|---------------|---------------|------|-----------------|--------------|--------|----------|--------|------|-----|-----------|-----------|
+| Aaban | M  | 14 | 2013 | 1890819  | 0.0007404199      | 5     | dignity       | nobility      | prosperity    | leadership    | strength      | FALSE| 1. Dignity\n2. Nobility\n3. Prosperity\n4. Leadership\n5. Strength | FALSE        | FALSE  | FALSE    | FALSE  | FALSE| FALSE| FALSE     | FALSE     |
+| Emma  | F  | 350| 2020 | 1720000  | 0.0203488372      | 4     | beauty        | love          | joy           | kindness      | strength      | FALSE| 1. Beauty\n2. Love\n3. Joy\n4. Kindness\n5. Strength  | FALSE        | TRUE   | FALSE    | FALSE  | TRUE | TRUE | FALSE     | FALSE     |
 
-_Dates should always be in ISO format_. That's `YYYY-MM-DD`, like `2024-01-12`. This is for three reasons. First, there's no risk of anyone confusing this date format for another (unlike American/European date formats). Second, most programming languages will parse an ISO date correctly with no other formatting. And third, dates written like this will always sort in chronological order, even if sorted alphabetically.
+## Summary
+
+The datasets provide a detailed view of the popularity and connotations of names in the US and UK over time. The connotations offer insights into cultural and societal perceptions of names, while the historical data allows for analysis of naming trends and the evolving emphasis on different qualities associated with names.
+
+## Contact
+
+For questions or issues, please contact Sondre Solstad at [sondresolstad@economist.com](mailto:sondresolstad@economist.com).

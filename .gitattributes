@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+output-data/us_names_with_popularity_and_connotations.csv filter=lfs diff=lfs merge=lfs -text
+output-data/us_names_with_popularity_and_connotations_cleaned.csv filter=lfs diff=lfs merge=lfs -text
