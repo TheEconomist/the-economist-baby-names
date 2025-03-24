@@ -1,6 +1,6 @@
 # What's in a name?
 
-This repository contains R scripts that analyze trends in baby names from America and Britain over the past 143 years. It examines how the popularity, diversity, and meanings (connotations) of names have evolved over time, highlighting cultural shifts through visualizations and statistical metrics.
+This repository contains R scripts that analyze trends in baby names from America and Britain over the past 143 years. It examines how the popularity, diversity, and popularity of names with certain connotations have evolved over time, highlighting cultural shifts through visualizations and statistical metrics.
 
 ### Contents:
 - **Data Gathering Scripts**: Collect and prepare datasets of baby names from US and UK sources.
