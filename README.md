@@ -48,9 +48,10 @@ The dataset for UK names is stored in the file [`output-data/uk_names_with_popul
 Connotations were obtained through OpenAI's API using separate calls to ChatGPT4 with the query "What are the top five connotations of the name {name}. Give your answer as a list separated by commas." 
 Connotations groups were obtained through a combination of manual and LLM identification of synonyms. Groups were defined manually.  
 
-## Caveats
+## Caveats and limitations
 - Not all baby names enter our dataset. In America, we only have data on names given to five or more in a given year. In England and Wales, only names given to at least three in a given year enter the data.
-- Our study tracks the popularity of connotations through the names. However, we only know the current connotations of names. Connotations may have changed over time. For some connotations this is especially important (e.g. "traditional"). Please consider this if using this data to look at such questions, and be careful about going far back in time. We have no reason to believe this affects broad trends in the data for the cannotation groups we identify in our analysis. 
+- Our study tracks the popularity of connotations through the names to which they are associated. However, we only know the current connotations of names. Connotations may have changed over time. For some connotations this is especially important (e.g. "traditional"). Please consider this if using this data to look at such questions, and be careful about going far back in time. We have no reason to believe this affects broad trends in the data for the cannotation groups we identify in our analysis.
+- The data f
 
 ## Contact
 
